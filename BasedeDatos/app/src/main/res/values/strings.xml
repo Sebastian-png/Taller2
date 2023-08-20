@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Base de Datos</string>
+    <string name="tvTitulo">Registro de usuarios</string>
+    <string name="etDocumento">DOCUMENTO</string>
+    <string name="etNombres">NOMBRES</string>
+    <string name="etApellidos">APELLIDOS</string>
+    <string name="etUsuario">USUARIO</string>
+    <string name="etContra">CONTRASEÑA</string>
+    <string name="btnRegistrar">Registrar</string>
+    <string name="btnBuscar">Buscar</string>
+    <string name="btnActualizar">Actualizar</string>
+    <string name="btnLimpiar">Limpiar</string>
+</resources>
