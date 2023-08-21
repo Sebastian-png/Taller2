@@ -2,17 +2,17 @@ package com.edu.basededatos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.edu.basededatos.classes.User;
+import com.edu.basededatos.model.ManageDB;
 import com.edu.basededatos.model.UserDAO;
 
 import java.util.ArrayList;
@@ -33,12 +33,14 @@ public class MainActivity extends AppCompatActivity {
     String apellidos;
     String contra;
     SQLiteDatabase baseDatos;
+    private ManageDB manageDB;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        manageDB = new ManageDB(this);
         begin();
         userList();
     }
@@ -69,7 +71,26 @@ public class MainActivity extends AppCompatActivity {
             userList();
         }
     }
-    public void callUserList(View view){ userList(); }
+    public void Buscar(View view) {
+        String searchTerm = etDocumento.getText().toString().trim();
+
+        if (!searchTerm.isEmpty()) {
+            UserDAO userDAO = new UserDAO(this, listUsers);
+            ArrayList<User> userArrayList = userDAO.Buscar(searchTerm);
+            ArrayAdapter<User> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, userArrayList);
+            listUsers.setAdapter(adapter);
+        } else {
+            userList();
+        }
+    }
+
+    public void Actualizar(View view) {
+        if (checkFields()) {
+            User user = new User(documento, usuario, nombres, apellidos, contra, 1);
+            Long error = manageDB.actualizar(user, this);
+        }
+    }
+    public void callUserList(View view){userList();}
 
     private void userList(){
         UserDAO userDAO = new UserDAO(this, listUsers);

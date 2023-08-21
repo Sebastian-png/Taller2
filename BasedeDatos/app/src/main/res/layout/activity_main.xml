@@ -15,6 +15,7 @@
         android:layout_marginTop="2dp"
         android:text="@string/tvTitulo"
         android:textAlignment="center"
+        android:textColor="#82A7F1"
         android:textSize="35sp" />
 
     <EditText
@@ -62,19 +63,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:backgroundTint="#11BF96"
             android:onClick="registerUser"
-            android:text="@string/btnRegistrar" />
-
-        <Button
-            android:id="@+id/btnBuscar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_weight="1"
-            android:text="@string/btnBuscar" />
-
-    </TableRow>
-    <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+            android:text="@string/btnRegistrar"
+            android:textColor="@color/white"
+             />
 
         <Button
             android:id="@+id/btnActualizar"
@@ -82,8 +75,35 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:onClick="callUserList"
+            android:backgroundTint="#11BF96"
+            android:onClick="Actualizar"
             android:text="@string/btnActualizar" />
+
+        <Button
+            android:id="@+id/btnBuscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#11BF96"
+            android:onClick="Buscar"
+            android:text="@string/btnBuscar" />
+
+
+
+    </TableRow>
+    <TableRow android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnListar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:backgroundTint="#11BF96"
+            android:onClick="callUserList"
+            android:text="@string/btnListar" />
+
 
         <Button
             android:id="@+id/btnLimpiar"
@@ -91,6 +111,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:backgroundTint="#11BF96"
             android:onClick="limpiar"
             android:text="@string/btnLimpiar" />
 

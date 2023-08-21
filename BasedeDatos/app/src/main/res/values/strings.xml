@@ -9,5 +9,6 @@
     <string name="btnRegistrar">Registrar</string>
     <string name="btnBuscar">Buscar</string>
     <string name="btnActualizar">Actualizar</string>
+    <string name="btnListar">Listar</string>
     <string name="btnLimpiar">Limpiar</string>
 </resources>

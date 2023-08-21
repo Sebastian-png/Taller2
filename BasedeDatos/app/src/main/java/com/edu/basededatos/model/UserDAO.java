@@ -70,4 +70,31 @@ public class UserDAO {
         db.close();
         return userList;
     }
+    public ArrayList<User> Buscar(String searchTerm) {
+        SQLiteDatabase db = manageDB.getReadableDatabase();
+        String query = "SELECT * FROM users WHERE " +
+                "usu_document LIKE '%" + searchTerm + "%' OR " +
+                "usu_user LIKE '%" + searchTerm + "%' OR " +
+                "usu_names LIKE '%" + searchTerm + "%' OR " +
+                "usu_last_names LIKE '%" + searchTerm + "%' OR " +
+                "usu_pass LIKE '%" + searchTerm + "%';";
+        ArrayList<User> userList = new ArrayList<>();
+
+        Cursor cursor = db.rawQuery(query, null);
+        if (cursor.moveToFirst()) {
+            do {
+                user = new User();
+                user.setDocument(cursor.getInt(0));
+                user.setUser(cursor.getString(1));
+                user.setNames(cursor.getString(2));
+                user.setLastNames(cursor.getString(3));
+                user.setPass(cursor.getString(4));
+                user.setStatus(cursor.getInt(5));
+                userList.add(user);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return userList;
+    }
 }
